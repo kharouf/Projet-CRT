@@ -42,10 +42,10 @@ const Evenements = () => {
    <Swiper className='swiper-container'  loop={true} navigation
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
+      spaceBetween={70}
       slidesPerView={3}
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+      // pagination={{ clickable: true }}
+      // scrollbar={{ draggable: true }}
       // onSwiper={(swiper) => console.log(swiper)}
       // onSlideChange={() => console.log('slide change')}
     >
@@ -73,84 +73,8 @@ const Evenements = () => {
           </div>
       </SwiperSlide>)}
      
-      <SwiperSlide>
-      <div className="container-evenement">
-        <div className="image-evenement">
-        <Carousel >
-                  <Carousel.Item>
-                    <img src={jour} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour1} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour2} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour3} />
-                  </Carousel.Item>
-                </Carousel>
-        </div>
-        <div className="hedear-evenement">
-            <div className="dscription-event">
-                <h1 className='titre-event'>نهار الهلال</h1>
-                <h3 className='date-event'> 2023/03/04 </h3>
-            </div>
-        </div>
-        <div className="footer-evenement">
-          <div className="like">
-             <i className="fas fa-heart"></i>
-        <i class="fa-sharp fa-solid fa-face-smile"></i>
-          </div>
-          <div className="button-detail">
-            <button onClick={() => setShow(true)}>
-              إقرأ المزيد
-            </button>
-          </div>
-       
-        </div>
-
-      </div>
-      </SwiperSlide>
-      <SwiperSlide>
-      <div className="container-evenement">
-        <div className="image-evenement">
-        <Carousel >
-                  <Carousel.Item>
-                    <img src={jour} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour1} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour2} />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img src={jour3} />
-                  </Carousel.Item>
-                </Carousel>
-        </div>
-        <div className="hedear-evenement">
-            <div className="dscription-event">
-                <h1 className='titre-event'>نهار الهلال</h1>
-                <h3 className='date-event'> 2023/03/04 </h3>
-            </div>
-        </div>
-        <div className="footer-evenement">
-          <div className="like">
-             <i className="fas fa-heart"></i>
-        <i class="fa-sharp fa-solid fa-face-smile"></i>
-          </div>
-          <div className="button-detail">
-            <button onClick={() => setShow(true)}>
-              إقرأ المزيد
-            </button>
-          </div>
-       
-        </div>
-
-      </div>
-      </SwiperSlide>
+      
+      
       </Swiper>
      {show? <Descriptionevent setShow={setShow}/> : null} 
 

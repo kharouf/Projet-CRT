@@ -162,8 +162,8 @@ const Updatebenevole = () => {
           <div className="input-profile">
             <div className="input">
               {/* <label>الإسم </label> */}
-              <input defaultValue={benevoleupdate.nom} onChange={(e) => setupdate({ ...update, nom: e.target.value })} value={benevoleupdate?.name} type="text" className="form-control n" placeholder={benevoleupdate?.name} />
-              <input defaultValue={benevoleupdate.prenom} onChange={(e) => setupdate({ ...update, prenom: e.target.value })} value={benevoleupdate?.lastName} type="text" className="form-control n" placeholder={benevoleupdate?.lastName} />
+              <input  onChange={(e) => setupdate({ ...update, nom: e.target.value })}  type="text" className="form-control n" placeholder={benevoleupdate?.name} />
+              <input  onChange={(e) => setupdate({ ...update, prenom: e.target.value })} value={benevoleupdate?.lastName} type="text" className="form-control n" placeholder={benevoleupdate?.lastName} />
 
             </div>
 

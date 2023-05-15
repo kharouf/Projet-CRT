@@ -14,6 +14,31 @@ import "../scss/profile.css"
 
 const Profile = () => {
   // fuction upload
+  const [image, setImage ] = useState("");
+  const [ url, setUrl ] = useState("");
+
+  const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "walakh")
+    data.append("cloud_name","dwfo7j8ic")
+ 
+
+      	
+     
+         fetch(" https://api.cloudinary.com/v1_1/dwfo7j8ic/image/upload",{
+          method:"post",
+          body: data
+          })
+          .then(resp => resp.json())
+          .then(data => {
+            console.log(data)
+          setUrl(data.secure_url)
+          
+          })
+          .catch(err => console.log(err))
+          }
+  // uploadImage
 
   function previewFile() {
     var preview = document.getElementsByClassName('imgup')[0];
@@ -66,7 +91,7 @@ const Profile = () => {
     image: "",
     commentaire: "",
     nb_participation: "",
-    isBenevole: ""
+    isBenevole: false,
   
 
   })
@@ -137,7 +162,10 @@ const Profile = () => {
 
             <div className="avatar-upload" >
               <div className="avatar-edit" >
-                <input onChange={(e) => {setaddVolontaire({ ...addVolontaire, image: e.target.value })
+              {/* <input onChange={(e)=> {setaddVolontaire({...addVolontaire,image:setImage(e.target.files[0])}) }} type="file" 
+        name="file"
+       className="form-control"  placeholder="image" required="" /> */}
+                <input onChange={(e) => {setaddVolontaire({ ...addVolontaire, image:setImage("wala") })
                 previewFile()}}type='file' id="imageUpload" accept=".png, .jpg, .jpeg"  />
                 <label htmlFor="imageUpload" ><Icon className='editbtn' icon="iconoir:edit-pencil" width="30" height="30" /></label>
               </div>
@@ -161,14 +189,14 @@ const Profile = () => {
           <div className="input-profile">
             <div className="input">
               {/* <label>الإسم </label> */}
-              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, nom: e.target.value })}  type="text" className="form-control n" placeholder={user?.name} />
-              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, prenom: e.target.value })}  type="text" className="form-control n" placeholder= {user?.lastName}/>
+              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, nom: user?.name })}  type="text" className="form-control n" placeholder={user?.name} />
+              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, prenom: user?.lastName })}  type="text" className="form-control n" placeholder= {user?.lastName}/>
 
             </div>
 
             <div className="input">
               {/* <label>الإسم </label> */}
-              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, email: e.target.value })}  type="email" className="form-control n" placeholder="" />
+              <input onChange={(e) => setaddVolontaire({ ...addVolontaire, email: user?.email })}  type="email" className="form-control n" placeholder={user?.email} />
               <input onChange={(e) => setaddVolontaire({ ...addVolontaire, num_tele: e.target.value })} type="text" className="form-control n " placeholder="رقم الهاتف" />
             </div>
 
@@ -290,11 +318,15 @@ const Profile = () => {
             </div>
 
           </div>
-
+   <img className="" src={url}/>
 
           <div className="button">
             <button className='btn-update'
-              onClick={() => dispatch(addBenevole(addVolontaire))}>
+              onClick={() =>{ dispatch(addBenevole(addVolontaire))
+                uploadImage()
+                setaddVolontaire({isBenevole: true })
+              }
+              }>
               أظف
             </button>
             <button onClick={() => handleCancel()} className='btn-annuler'>

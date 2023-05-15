@@ -11,6 +11,8 @@ import About from './About'
 import { links } from './data'
 import Login from './Login'
 import { logout, userCurrent } from './JS/userSlice/userSlice'
+// import { benevoleget } from './JS/benevoleSlice/benevoleSlice'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { Icon } from '@iconify/react'
 
@@ -19,6 +21,8 @@ import { Icon } from '@iconify/react'
 const Navbar = ({ping ,setPing}) => {
   // is auth
   const user = useSelector(state => state.user.user)
+  const benevole = useSelector((state) => state.benevole?.benevole);
+  
   const isAuth = localStorage.getItem('token');
   const dispatch = useDispatch()
 
@@ -89,6 +93,7 @@ const Navbar = ({ping ,setPing}) => {
               <Link className='link' to="/dashboard"> لوحة الإعدادات
                 <Icon icon="bi:boxes" width="30" height="30" />
               </Link>
+              
             </div>
 
 
@@ -103,7 +108,7 @@ const Navbar = ({ping ,setPing}) => {
             <>
               <div className="Navbar-links-admin">
 
-                <Link className='link' to="/profile">   إستمارة التطوع 
+                <Link className='link' to="/profile"> {benevole?.nom}  إستمارة التطوع 
 
                 </Link>
 
@@ -114,7 +119,21 @@ const Navbar = ({ping ,setPing}) => {
             </>
 
 
-          ) : (null
+          ) : (
+            benevole?.isBenevole === true ?(
+              <>
+              <div className="Navbar-links-admin">
+
+                <Link className='link' to="/profile">    تعديل البيانات
+
+                </Link>
+
+
+              </div>
+              
+
+            </>
+            ): null
 
           )}
         </>

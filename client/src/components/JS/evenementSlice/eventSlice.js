@@ -7,7 +7,7 @@ import axios from 'axios'
 export const addEvenement = createAsyncThunk("evenement/add", async (evenement) => {
     try {
         let response = await axios.post(
-            "http://localhost:5000/evenement/add", evenement)
+            "http://localhost:5000/evenement/add", evenement,{headers: {Authorization: localStorage.getItem("token")}})
         return await response
     } catch (error) {
         console.log(error)
@@ -19,7 +19,7 @@ export const addEvenement = createAsyncThunk("evenement/add", async (evenement) 
 export const evenementget=createAsyncThunk("evenement/get",async()=>{
     try {
        let result= await axios.get("http://localhost:5000/evenement/get")
-       return await result.data;
+       return await result;
     } catch (error) {
         console.log(error)
     }
@@ -74,7 +74,7 @@ const initialState = {
            
             
              
-            state.evenement = action.payload.data?.evenement;
+            state.evenement = action.payload?.data?.evenement;
             
             
     
@@ -111,7 +111,7 @@ const initialState = {
     [evenementget.pending]: (state) => {state.status="pending"},
     [evenementget.fulfilled]: (state,action) => {
     state.status="successe" ;
-    state.evenement = action.payload?.evenement;},
+    state.evenement = action.payload?.data.evenement;},
     [evenementget.rejected]: (state,) => {state.status="failed"},
     
     

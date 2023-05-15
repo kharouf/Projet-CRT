@@ -36,6 +36,8 @@ const Upbenevole = () => {
     setInputValue("");
   };
   // 
+  const locationnn =useLocation()
+  const benevoleupd = locationnn.state
   const isAuth = localStorage.getItem('token');
   const dispatch = useDispatch()
   const benevole = useSelector(state => state.benevole?.benevole)
@@ -44,32 +46,32 @@ const Upbenevole = () => {
   console.log(user?._id)
   const [update, setupdate] = useState({
 
-    num_dossier:benevole?.num_dossier,
-    nom: benevole?.nom,
-    prenom: benevole?.prenom,
-    sexe: benevole?.sexe,
-    nom_pere:benevole?.nom_pere,
-    nom_mere: benevole?.nom_mere,
-    prenom_mere: benevole?.prenom_mere,
-    num_tele_parents: benevole?.num_tele_parents,
-    date_n: benevole?.date_n,
-    lieu_n: benevole?.lieu_n,
-    adresse: benevole?.adresse,
-    cin: benevole?.cin,
-    Annee_volontariat: benevole?.Annee_volontariat,
-    profession: benevole?.profession,
-    num_tele: benevole?.num_tele,
-    email: benevole?.email,
-    niveau: benevole?.niveau,
-    diplome: benevole?.diplome,
-    certificat_crt: benevole?.certificat_crt,
-    nom_etablisement: benevole?.nom_etablisement,
-    loisir: benevole?.loisir,
-    secouriste: benevole?.secouriste,
-    image: benevole?.image,
-    commentaire: benevole?.commentaire,
-    nb_participation: benevole?.nb_participation,
-    isBenevole:benevole?.isBenevole,
+    num_dossier:benevoleupd.num_dossier,
+    nom: benevoleupd.nom,
+    prenom: benevoleupd.prenom,
+    sexe: benevoleupd.sexe,
+    nom_pere:benevoleupd.nom_pere,
+    nom_mere: benevoleupd.nom_mere,
+    prenom_mere: benevoleupd.prenom_mere,
+    num_tele_parents: benevoleupd.num_tele_parents,
+    date_n: benevoleupd.date_n,
+    lieu_n: benevoleupd.lieu_n,
+    adresse: benevoleupd.adresse,
+    cin: benevoleupd.cin,
+    Annee_volontariat: benevoleupd.Annee_volontariat,
+    profession: benevoleupd.profession,
+    num_tele: benevoleupd.num_tele,
+    email: benevoleupd.email,
+    niveau: benevoleupd.niveau,
+    diplome: benevoleupd.diplome,
+    certificat_crt: benevoleupd.certificat_crt,
+    nom_etablisement: benevoleupd.nom_etablisement,
+    loisir: benevoleupd.loisir,
+    secouriste: benevoleupd.secouriste,
+    image: benevoleupd.image,
+    commentaire: benevoleupd.commentaire,
+    nb_participation: benevoleupd.nb_participation,
+    isBenevole:benevoleupd.isBenevole,
     userId:user?._id
 
   })
@@ -277,7 +279,7 @@ const Upbenevole = () => {
           
           <div className="button">
               <button className='btn-update'
-                onClick={() => dispatch(updatebenevole(update))}>
+                onClick={() => dispatch(updatebenevole({id:benevoleupd._id,benevole:update }))}>
                 تعديل
               </button>
               <button onClick={() => handleCancel()} className='btn-annuler'>

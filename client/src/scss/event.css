@@ -3,25 +3,20 @@
   overflow-y: scroll;
 }
 .list-evenements{
-  /* border: 1px solid red; */
-  width: 90vw;
+  /* border: 1px solid rgb(43, 0, 255); */
+  width: 95vw;
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-left: 3.5cm;
-  padding: 1cm 0;
+  justify-content: space-around;
+  margin-left: 1cm;
+  padding: 1cm 2cm;
   gap: 30px;
   
   
   
 }
-/* .swiper-container{
-  display: flex;
-  flex-direction: row;
-  border: 1px solid red;
-  width: 90vw;
-} */
+
 .list-evenements-detaile{
   /* border: 1px solid red; */
   background-color: #11111180;
@@ -163,14 +158,16 @@ flex-direction: row-reverse;
 
 
 .events{
+  margin-right: 2cm;
   width: 350px;
   height: auto;
   background-color: #9a9696;
   border-radius: 20px;
   scale: 0.2s;
   overflow: hidden;
-  padding: 20px;
+  padding: 1cm;
   gap: 20px;
+  
 }
 
 .cardimg img{

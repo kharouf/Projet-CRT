@@ -36,6 +36,10 @@ const Userschema = new schema({
      benevole: {
       type:mongoose.Schema.Types.ObjectId,
       ref: "benevole"
+    },
+    evenement: {
+      type:mongoose.Schema.Types.ObjectId,
+      ref: "evenement"
     }
      
    

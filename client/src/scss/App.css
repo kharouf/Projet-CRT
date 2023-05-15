@@ -13,17 +13,22 @@
   /* border: 1px solid red; */
 
  }
+ #principes{
+  background-color: #ebebeb;
+  /* border: 1px solid #0256fe; */
+ }
+ 
  #home,
  #about,
  #comite,
- #principes,
+ 
  #programs,
  #contact {
    min-height: 60vh;
    text-align: center;
    background: #ffffff;
     
-box-shadow: 0px -0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px -0px 0.2px 0px rgba(0,0,0,0.1);
    height: auto;
    bottom: 0;
    position: relative;

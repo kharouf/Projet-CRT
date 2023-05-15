@@ -14,22 +14,22 @@ import Footer from './Footer'
 
 
 const Home = () => {
- 
-  return (
-      <div className='CRT' >
 
-         <Carousel/>
-         <About />
+  return (
+    <div className='CRT' >
+
+      <Carousel />
+      <About />
       <Evenements />
       <Comite />
       <Principes />
       <Programs />
       <Contact />
       <Footer />
-        
-        
-        
-      </div>
+
+
+
+    </div>
   )
 }
 

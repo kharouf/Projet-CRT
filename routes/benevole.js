@@ -9,11 +9,11 @@ benevoleRouter.get('/getb', isAuth(), async (req, res) => {
 
     try {
         const result = await benevole.find({ clientId: req.user.id }).populate("clientId");
-        console.log(result)
-        console.log({ clientId: req.user.id })
+        // console.log(result)
+        // console.log({ clientId: req.user.id })
 
 
-        console.log(result)
+        // console.log(result)
         res.send({ benevole: result, message: ' user benevole GETED' })
 
 
@@ -27,14 +27,7 @@ benevoleRouter.get('/getb', isAuth(), async (req, res) => {
 // POST New newbenevole
 benevoleRouter.post('/add', isAuth(), async (req, res) => {
 
-    // try {
-    //     const newbenevole = new benevole (req.body)
-    //     const result= await newbenevole.save()
-    //     res.send({ benevole:result, message: 'Benevole Added ' })
-
-    // } catch (error) {
-    //     console.log(error)
-    // }
+   
     try {
         const newbenevole = await benevole.create({
             ...req.body,

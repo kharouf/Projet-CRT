@@ -22,9 +22,13 @@ const Evenementschema = new schema({
     
    },
    endDate:{
-    type:Date
+    type:Date,
     
-   }
+   },
+   clientId: {
+      type:mongoose.Schema.Types.ObjectId, 
+      ref: "user"
+    }
 }
 )
 

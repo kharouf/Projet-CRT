@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { benevoledelet, benevoleget } from '../../JS/benevoleSlice/benevoleSlice'
 import { Link } from 'react-router-dom'
+import "../style/benevole.css"
 
 const GetBenevole = () => {
   const dispatch = useDispatch()
@@ -14,49 +15,80 @@ const GetBenevole = () => {
     dispatch(benevoleget())
   }, [pingB])
   return (
-    <div className='listuser'>
-      <table className="table">
-        <tr>
-          <td className="td">جذف</td>
-          <td className="td">تعديل</td>
-          <td className="td">الاسم</td>
-          <td className="td">القب</td>
-          <td className="td"> البريد الإلكتروني  </td>
-          <td className="td"> مسؤل  </td>
-          <td className="td"> متطوع  </td>
-          <td className="td">الصورة</td>
-        </tr>
-      </table>
+
+    <div className='listbenevole'>
 
 
 
 
-      <div className="user" >
-        <table className="table" >
-          {benevoles?.map((benevole, i) =>
-            <tr key={i}>
-              <td className="td"><button className=" btnc-userlist"
+
+
+      {benevoles?.map((benevole, i) =>
+      
+          <div key={i} class="profile-card">
+
+            <header>
+
+
+              <a href="https://tutsplus.com">
+                <img src="https://i.pravatar.cc/300" />
+              </a>
+
+              <div className="hetext">
+                <h1>{benevole?.nom}</h1>
+                
+
+
+                <h1>{benevole?.prenom}</h1>
+              </div>
+
+
+            </header>
+
+            <div class="profile-bio">
+
+              <p>{benevole?.sexe}</p>
+              <p>{benevole?.nom_pere}</p>
+             
+
+            </div>
+
+
+            <ul class="profile-social-links btn">
+              <li><button className=" btnc-userlist"
                 onClick={() => {
                   dispatch(benevoledelet(benevole?._id)
                   )
                   setPingB(!pingB)
                 }}
-              >جذف</button></td>
-              <td className="td "><Link to="/dashboard/updatebenevole" state={benevoles}><button  className=" btna-userlist">تعديل</button></Link></td>
-              <td className="td">{benevole?.nom}</td>
-              <td className="td">{benevole?.prenom}</td>
-              <td className="td">{benevole?.email} </td>
-              {/* <td className="td"> {user?.password}</td> */}
+              >حذف</button></li>
+            <li><Link to="/dashboard/updatebenevole" state={benevoles}><button  className=" btna-userlist">تعديل</button></Link></li>
+            
 
-              <td className="td"><img src="" alt="profile" /></td>
-            </tr>
-          )}
-        </table>
-      </div>
+            </ul>
 
+
+
+
+
+
+
+ 
+
+          </div>
       
-</div>
-    
+
+        
+
+
+      )
+      }
+
+
+
+    </div >
+
+
   )
 }
 

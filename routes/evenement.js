@@ -7,26 +7,59 @@ const evenement = require("../models/evenement")
 
 
 // POST New evenement
-evenementRouter.post('/add', async (req, res) => {
-    const {endtDate}= (req.body)
+// evenementRouter.post('/add', async (req, res) => {
+
+//     try {
+//         const newevenement = new evenement ({...req.body})
+//         const result= await newevenement.save()
+        
+//         res.send({ evenement:result, message: 'evenement Added ' })
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+
+// }
+// )
+// Get user evenement 
+evenementRouter.get('/gete', isAuth(), async (req, res) => {
 
     try {
-        const newevenement = new evenement ({...req.body})
-        const result= await newevenement.save()
-        res.send({ evenement:result, message: 'evenement Added ' })
-        
+        const result = await evenement.find({ clientId: req.user.id }).populate("clientId");
+        console.log({ clientId: req.user.id })
+        res.send({ evenement: result, message: ' user evenement GETED' })
+
+
     } catch (error) {
         console.log(error)
     }
 
 }
 )
-
-// Get All evenements
-evenementRouter.get('/get', async (req, res) => {
+evenementRouter.post('/add', isAuth(), async (req, res) => {
 
     try {
-        const result= await evenement.find()
+        const newevenement = await  evenement.create({
+            ...req.body,
+            clientId: req.user?.id,
+            
+        });
+        
+        const result = await newevenement.save()
+        res.send({ evenement: result, message: 'evenement Added ' })
+
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+)
+// Get All evenements
+evenementRouter.get('/get',  async (req, res) => {
+
+    try {
+        const result= await evenement.find();
         
         res.send({ evenement:result, message: 'All evenement is  GETED ' })
         
@@ -72,12 +105,18 @@ evenementRouter.delete('/:id', async (req, res) => {
 // Update evenement BY id
 
 evenementRouter.put('/:id', async (req, res) => {
+    // console.log(req.body.evenement)
 
-    try {
+    try {S
         const result= await evenement.findByIdAndUpdate(
-            console.log(result),
+            
             { _id:req.params.id} ,
-            { $set:{...req.body}}) 
+            { $set:{...req.body}},
+            {$push: { clientId: req.user.id }},
+            { new: true })
+
+            
+             
         
         
         res.send({ evenement:result, message: ' evenement Updated'+ " "+ req.params.id })

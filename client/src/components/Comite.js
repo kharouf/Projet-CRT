@@ -2,11 +2,18 @@ import React from 'react'
 
 import "../scss/comite.css"
 import logo from '../assets/images/logo.png'
-import president from '../assets/images/comite/med.png'
+import president from '../assets/images/comite/med.jpg'
 import vis_president from '../assets/images/comite/mohsen.jpg'
-import secretair from '../assets/images/comite/salah.JPG'
-import teresorie from '../assets/images/comite/najeh.JPG'
+import secretair from '../assets/images/comite/salah.jpg'
+import teresorie from '../assets/images/comite/najeh.jpg'
 import diffusion from '../assets/images/comite/wala.jpg'
+import sante from '../assets/images/comite/oussema.jpg'
+import catastrophe from '../assets/images/comite/ramzi.jpg'
+import chabeb from '../assets/images/comite/howayda.jpg'
+import secourisme from '../assets/images/comite/medzatra.jpg'
+import sociale from '../assets/images/comite/medalya.jpg'
+
+
 
 
 const Comite = () => {
@@ -107,11 +114,11 @@ const Comite = () => {
             <div class="card_box">
 
               <div className="container_image">
-                <img src={president} alt="logo" width={"200px"} height={"200px"} />
+                <img src={sociale} alt="logo" width={"200px"} height={"200px"} />
               </div>
 
               <div className="container_title">
-                <h1> محمد عبار</h1>
+                <h1> محمد علية</h1>
               </div>
               <div className="container_poste">
                 <h3>عضو مكلف بالعمل الإجتماعي  </h3>
@@ -121,11 +128,11 @@ const Comite = () => {
             <div className="container">
             <div class="card_box">
               <div className="container_image">
-                <img src={president} alt="logo" width={"200px"} height={"200px"} />
+                <img src={secourisme} alt="logo" width={"200px"} height={"200px"} />
               </div>
 
               <div className="container_title">
-                <h1> محمد سوايسة</h1>
+                <h1> محمد زعاترة</h1>
               </div>
               <div className="container_poste">
                 <h3>عضو مكلف بالاسعاف  </h3>
@@ -138,7 +145,7 @@ const Comite = () => {
             <div class="card_box">
 
               <div className="container_image">
-                <img src={president} alt="logo" width={"200px"} height={"200px"} />
+                <img src={catastrophe} alt="logo" width={"200px"} height={"200px"} />
               </div>
 
               <div className="container_title">
@@ -153,7 +160,7 @@ const Comite = () => {
             <div class="card_box">
 
               <div className="container_image">
-                <img src={president} alt="logo" width={"200px"} height={"200px"} />
+                <img src={sante} alt="logo" width={"200px"} height={"200px"} />
               </div>
 
               <div className="container_title">
@@ -168,11 +175,11 @@ const Comite = () => {
             <div class="card_box">
 
               <div className="container_image">
-                <img src={president} alt="logo" width={"200px"} height={"200px"} />
+                <img src={chabeb} alt="logo" width={"200px"} height={"200px"} />
               </div>
 
               <div className="container_title">
-                <h1>  زينب الباجي</h1>
+                <h1>هويدة غودي</h1>
               </div>
               <div className="container_poste">
                 <h3> عضو مكلف بالشباب</h3>

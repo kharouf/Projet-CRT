@@ -107,7 +107,8 @@ const Benevoleschema = new schema({
       
      },
      isBenevole:{
-      type:String,
+      type:Boolean,
+      default:false
      },
    
    clientId: {

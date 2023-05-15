@@ -112,11 +112,12 @@ userRouter.get('/:id', async (req, res) => {
 }
 )
 userRouter.put('/:id', async (req, res) => {
-console.log(req.body)
+// console.log(req.body)
     try {
         const result= await user.findByIdAndUpdate(
-            { _id:req.params.id} ,
-            { $set:{...req.body}}) 
+            {_id:req.params.id} ,
+            { $set:{...req.body}}
+            ) 
         
         
         res.send({ user:result, message: ' user Updated'+ " "+ req.params.id })

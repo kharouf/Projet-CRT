@@ -30,6 +30,7 @@ import { evenementget } from '../JS/evenementSlice/eventSlice';
 
 const Admin = () => {
   const user = useSelector(state => state.user?.user)
+  
 
 
 
@@ -127,17 +128,18 @@ const Admin = () => {
         <div className="siedbar-dashbord">
           <div className="sidebar-login">
             {/* <img src={logo} alt="" width={"100px"} height={"100px"} /> */}
-            <h1>wala</h1>
+
             <div className="retour">
-              <Link className='link-h' to="/"> < Icon className='link-i' icon="mdi:home-circle" color="black" width="50" height="50" /></Link>
+              <Link className='link-h' to="/"> <Icon icon="carbon:user-avatar" color="green" width="64" height="64" /></Link>
             </div>
+            <h1 className='title'>{user?.name}</h1>
           </div>
 
           <div className="sidebar-crud">
 
             <div className='sidebar__menu__item' >
 
-              <Icon icon="bx:home" color="black" width="50" height="50" />
+              <Icon icon="bx:home" color="white" width="50" height="50" />
               <Link to="/dashboard" relative="path">
                 <h1>لوحة القيادة</h1></Link>
             </div>
@@ -152,18 +154,24 @@ const Admin = () => {
 
             <div className='sidebar__menu__item' onClick={() => setOpenuser(!openuser)}>
 
-              <Icon icon="mdi:user" color="black" width="50" height="50" />
+              <Icon icon="mdi:user" color="white" width="50" height="50" />
 
-             <Link to="/dashboard/listuser" onClick={() => {dispatch(userget())
-             setPingA(!pingA)}
-            }> <h1>مستخدم</h1> </Link>
+              <Link to="/dashboard/listuser" onClick={() => {
+                dispatch(userget())
+                setPingA(!pingA)
+              }
+              }> <h1>مستخدم</h1> </Link>
             </div>
             {openuser ?
               <div className='sidebar__menu__item__icon' >
-                
+
                 {/* <Link to="/dashboard/edituser">تعديل</Link>
                 <Link to="/dashboard/deletuser">مسح </Link> */}
-                <Link to="/dashboard/adduser">إظافة  </Link>
+                <div className="links">
+
+                  <Link className='h1' text-crud to="/dashboard/adduser">إضافة مستخدم</Link>
+                  <Icon icon="mdi:user-add" color="green" width="25" height="25" />
+                </div>
 
               </div> : null}
 
@@ -174,13 +182,13 @@ const Admin = () => {
 
             <div className='sidebar__menu__item' onClick={() => setOpenbenevole(!openbenevole)}>
 
-              <Icon icon="mdi:user-group" color="black" width="50" height="50" />
+              <Icon icon="mdi:user-group" color="white" width="50" height="50" />
 
-              
-                <Link to="/dashboard/listbenevole" onClick={() => {
-                  dispatch(benevoleget())
-                  setPingA(!pingA)
-                }}><h1>متطوع</h1>  </Link>
+
+              <Link to="/dashboard/listbenevole" onClick={() => {
+                dispatch(benevoleget())
+                setPingA(!pingA)
+              }}><h1>متطوع</h1>  </Link>
             </div>
             {openbenevole ?
               <div className='sidebar__menu__item__icon' >
@@ -196,7 +204,7 @@ const Admin = () => {
 
             <div className='sidebar__menu__item' onClick={() => setOpenfamil(!opendfamil)}>
 
-              <Icon icon="mdi:user-heart" color="black" width="50" height="50" />
+              <Icon icon="mdi:user-heart" color="white" width="50" height="50" />
 
               <h1>أصحاب الحق</h1>
             </div>
@@ -216,12 +224,12 @@ const Admin = () => {
 
             <div className='sidebar__menu__item' onClick={() => setOpenevent(!openevent)} >
 
-              <Icon icon="uil:file-plus-alt" color="black" width="50" height="50" />
+              <Icon icon="uil:file-plus-alt" color="white" width="50" height="50" />
 
               <Link to="/dashboard/listevents" text-crud onClick={() => {
-                    dispatch(evenementget())
-                    setPingA(!pingA)
-                  }}> <h1>أخبار & نشاطات</h1> </Link> 
+                dispatch(evenementget())
+                setPingA(!pingA)
+              }}> <h1>أخبار & نشاطات</h1> </Link>
 
             </div>
             {openevent ?
@@ -236,8 +244,8 @@ const Admin = () => {
                 </div> */}
                 <div className="links">
 
-                  <Link text-crud to="/dashboard/Addevent">إضافة نشاط</Link>
-                  <Icon icon="mdi:user-add" color="green" width="25" height="25" />
+                  <Link className='h1' text-crud to="/dashboard/Addevent">إضافة نشاط</Link>
+                  <Icon icon="carbon:add-alt" color="green" width="25" height="25" />
                 </div>
 
 
@@ -254,14 +262,14 @@ const Admin = () => {
           {/* <button> <Link to="/dashboard/listuser" onClick={() => dispatch(userget())}>قائمة المستخدمين</Link>listeUser</button> */}
 
           {/* <Carousel/> */}
-         
 
-        {/* <UserList/> */}
 
-        {/* {console.log(user)} */}
+          {/* <UserList/> */}
 
-      </div>
-    </div >
+          {/* {console.log(user)} */}
+
+        </div>
+      </div >
 
 
 
